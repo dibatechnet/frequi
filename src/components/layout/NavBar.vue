@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="body">
     <b-navbar toggleable="sm" type="dark" variant="primary">
       <router-link class="navbar-brand" exact to="/">
-        <img class="logo" src="@/assets/freqtrade-logo.png" alt="Home Logo" />
-        <span class="navbar-brand-title d-sm-none d-md-inline">Freqtrade UI</span>
+        <img class="logo" src="@/assets/voteVector.png" alt="Home Logo" />
+        <span class="navbar-brand-title d-sm-none d-md-inline">ربات مدیریت رمزارز انتخاب دیبا</span>
       </router-link>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -11,29 +11,29 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <router-link v-if="!canRunBacktest" class="nav-link navbar-nav navbar-dark" to="/trade"
-            >Trade</router-link
+            >ترید</router-link
           >
           <router-link
             v-if="!canRunBacktest"
             class="nav-link navbar-nav navbar-dark"
             to="/dashboard"
-            >Dashboard</router-link
+            >پنل مدیریتی</router-link
           >
-          <router-link class="nav-link navbar-nav navbar-dark" to="/graph">Graph</router-link>
-          <router-link class="nav-link navbar-nav navbar-dark" to="/logs">Logs</router-link>
+          <router-link class="nav-link navbar-nav navbar-dark" to="/graph">نمودار</router-link>
+          <router-link class="nav-link navbar-nav navbar-dark" to="/logs">لاگ ها</router-link>
           <router-link v-if="canRunBacktest" class="nav-link navbar-nav navbar-dark" to="/backtest"
-            >Backtest</router-link
+            >بک تست</router-link
           >
           <BootswatchThemeSelect />
         </b-navbar-nav>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <li class="nav-item text-secondary mr-2">
-            <b-nav-text class="verticalCenter small mr-2">
+            <!-- <b-nav-text class="verticalCenter small mr-2">
               {{ botName }}
-            </b-nav-text>
+            </b-nav-text> -->
             <b-nav-text class="verticalCenter">
-              {{ isBotOnline ? 'Online' : 'Offline' }}
+              {{ isBotOnline ? 'آنلاین' : 'آفلاین' }}
             </b-nav-text>
           </li>
           <li v-if="loggedIn" class="nav-item">
@@ -42,12 +42,10 @@
               <template #button-content>
                 <b-avatar size="2em" button>FT</b-avatar>
               </template>
-              <router-link class="dropdown-item" to="/settings">Settings</router-link>
-              <b-checkbox v-model="layoutLockedLocal" class="pl-5">Lock layout</b-checkbox>
-              <b-dropdown-item @click="resetDynamicLayout">Reset Layout</b-dropdown-item>
-              <router-link class="dropdown-item" to="/" @click.native="logout()"
-                >Sign Out</router-link
-              >
+              <router-link class="dropdown-item" to="/settings">تنظیمات</router-link>
+              <b-checkbox v-model="layoutLockedLocal" class="pl-5">قفل تم</b-checkbox>
+              <b-dropdown-item @click="resetDynamicLayout">ریستارت تم</b-dropdown-item>
+              <router-link class="dropdown-item" to="/" @click.native="logout()">خروج</router-link>
             </b-nav-item-dropdown>
           </li>
           <li v-else>
@@ -62,13 +60,13 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import LoginModal from '@/views/LoginModal.vue';
 import { State, Action, namespace, Getter } from 'vuex-class';
+import Favico from 'favico.js';
+import LoginModal from '@/views/LoginModal.vue';
 import userService from '@/shared/userService';
 import BootswatchThemeSelect from '@/components/BootswatchThemeSelect.vue';
 import { LayoutActions, LayoutGetters } from '@/store/modules/layout';
 import { BotStoreGetters } from '@/store/modules/ftbot';
-import Favico from 'favico.js';
 import { OpenTradeVizOptions, SettingsGetters } from '@/store/modules/settings';
 
 const ftbot = namespace('ftbot');
@@ -211,6 +209,9 @@ export default class NavBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.body {
+  font-family: 'iransans';
+}
 .logo {
   vertical-align: middle;
   height: 30px;

@@ -7,9 +7,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
 import Header from '@/components/layout/Header.vue';
 import Body from '@/components/layout/Body.vue';
-import { namespace } from 'vuex-class';
 import { SettingsGetters } from './store/modules/settings';
 import { setTimezone } from './shared/formatters';
 

@@ -9,7 +9,7 @@
       lazy
     >
       <b-dropdown-item v-if="themeList.length === 0">
-        <b-spinner small></b-spinner> Loading Themes...
+        <b-spinner small></b-spinner> درحال بارگیری
       </b-dropdown-item>
 
       <!-- TODO Add  v-b-tooltip.hover.right=="{ variant: 'className' }" for tooltip class rendered from bootswatch-->
@@ -34,8 +34,8 @@
 import Vue from 'vue';
 import axios from 'axios';
 import ThemeLightDark from 'vue-material-design-icons/Brightness6.vue';
-import { themeList } from '@/shared/themes';
 import { mapActions } from 'vuex';
+import { themeList } from '@/shared/themes';
 import { FTHTMLStyleElement } from '@/types/styleElement';
 
 export default Vue.extend({

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { api } from '@/shared/apiService';
 
 import {
@@ -36,7 +37,6 @@ import {
   getAllPlotConfigNames,
   storePlotConfigName,
 } from '@/shared/storage';
-import axios from 'axios';
 import state, { FtbotStateType } from './state';
 import { showAlert } from '../alerts';
 

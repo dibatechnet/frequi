@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <b-card header="Freqtrade bot Login">
+    <b-card header="ورود به ربات موتور سامانه انتخاب دیبا">
       <Login id="loginForm" ref="loginForm" />
     </b-card>
   </div>
@@ -20,5 +20,6 @@ export default class LoginView extends Vue {}
 <style scoped>
 .container {
   max-width: 520px;
+  font-family: 'iransans';
 }
 </style>

@@ -1,7 +1,12 @@
 <template>
   <div>
-    <b-button v-b-modal.modal-prevent-closing>Login</b-button>
-    <b-modal id="modal-prevent-closing" ref="modal" title="Submit Your Name" @ok="handleOk">
+    <b-button v-b-modal.modal-prevent-closing>ورود</b-button>
+    <b-modal
+      id="modal-prevent-closing"
+      ref="modal"
+      title="نام کاربری خود را تایید کنید"
+      @ok="handleOk"
+    >
       <Login id="loginForm" ref="loginForm" in-modal />
     </b-modal>
   </div>

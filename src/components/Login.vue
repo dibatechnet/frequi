@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="body">
     <form ref="form" novalidate @submit.stop.prevent="handleSubmit" @reset="handleReset">
       <b-form-group
         :state="urlState"
-        label="API Url"
+        label="ادرس کلید"
         label-for="url-input"
         invalid-feedback="API Url required"
       >
@@ -17,7 +17,7 @@
       </b-form-group>
       <b-form-group
         :state="nameState"
-        label="Username"
+        label="نام کاربری"
         label-for="username-input"
         invalid-feedback="Name is required"
       >
@@ -29,7 +29,7 @@
           @keydown.enter.native="handleOk"
         ></b-form-input>
       </b-form-group>
-      <b-form-group label="Password" label-for="password-input" invalid-feedback="Invalid Password">
+      <b-form-group label="رمزعبور" label-for="password-input" invalid-feedback="Invalid Password">
         <b-form-input
           id="password-input"
           v-model="auth.password"
@@ -43,16 +43,14 @@
           {{ errorMessage }}
           <br />
           <span v-if="errorMessageCORS">
-            Please also check your bot's CORS configuration:
-            <a href="https://www.freqtrade.io/en/latest/rest-api/#cors"
-              >Freqtrade CORS documentation</a
-            ></span
+            لطفا CORS هم چک کنید:
+            <a href="https://www.freqtrade.io/en/latest/rest-api/#cors">قوانین CORS</a></span
           >
         </b-alert>
       </div>
       <div v-if="inModal === false" class="float-right">
-        <b-button class="mr-2" type="reset" variant="danger">Reset</b-button>
-        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button class="mr-2" type="reset" variant="danger">شروع مجدد</b-button>
+        <b-button type="submit" variant="primary">تایید</b-button>
       </div>
     </form>
   </div>
@@ -153,12 +151,13 @@ export default class Login extends Vue {
         console.error(error.response);
         if (error.response && error.response.status === 401) {
           this.nameState = false;
-          this.errorMessage = 'Connected to bot, however Login failed, Username or Password wrong.';
+          this.errorMessage =
+            'به ربات وصل شدید, اما ورود شکست خورد, نام کاربری و رمز عبور اشتباه است.';
         } else {
           this.urlState = false;
-          this.errorMessage = `Login failed.
-Please verify that the bot is running, the Bot API is enabled and the URL is reachable.
-You can verify this by navigating to ${this.auth.url}/api/v1/ping to make sure the bot API is reachable`;
+          this.errorMessage = `ورود ناموفق.
+لطفا مطمئن شوید ربات فعال است, کلید ربات فعال باشد و ادرس قابل دسترسی باشد.
+شما با کلیک بر روی  این لینک ${this.auth.url}/api/v1/ping میتوانید از وضعیت ربات مطلع شوید`;
           if (this.auth.url !== window.location.origin) {
             this.errorMessageCORS = true;
           }
@@ -171,6 +170,9 @@ You can verify this by navigating to ${this.auth.url}/api/v1/ping to make sure t
 </script>
 
 <style scoped lang="scss">
+.body {
+  font-family: 'iransans';
+}
 .alert-wrap {
   white-space: pre-wrap;
 }

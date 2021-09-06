@@ -28,10 +28,10 @@
 </template>
 
 <script lang="ts">
-import { LayoutActions, LayoutGetters } from '@/store/modules/layout';
-import { OpenTradeVizOptions, SettingsActions, SettingsGetters } from '@/store/modules/settings';
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
+import { LayoutActions, LayoutGetters } from '@/store/modules/layout';
+import { OpenTradeVizOptions, SettingsActions, SettingsGetters } from '@/store/modules/settings';
 
 const layoutNs = namespace('layout');
 const uiSettingsNs = namespace('uiSettings');
