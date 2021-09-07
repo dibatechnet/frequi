@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mb-2">
-      <label class="mr-auto h3">Daily Stats</label>
+      <label class="mr-auto h3">آمار روزانه</label>
       <b-button class="float-right" size="sm" @click="getDaily">&#x21bb;</b-button>
     </div>
     <div>
@@ -32,7 +32,7 @@ export default Vue.extend({
         { key: 'abs_profit', label: 'Profit', formatter: (value) => formatPrice(value) },
         {
           key: 'fiat_value',
-          label: `In ${this.dailyStats.fiat_display_currency}`,
+          label: `در ${this.dailyStats.fiat_display_currency}`,
           formatter: (value) => formatPrice(value, 2),
         },
         { key: 'trade_count', label: 'Trades' },

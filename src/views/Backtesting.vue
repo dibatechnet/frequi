@@ -2,7 +2,7 @@
   <div class="container-fluid" style="max-height: calc(100vh - 60px)">
     <div class="container-fluid">
       <div class="row mb-2"></div>
-      <p v-if="!canRunBacktest">Bot must be in webserver mode to enable Backtesting.</p>
+      <p v-if="!canRunBacktest">برای فعال کردن Backtesting ، ربات باید در حالت وب سرور باشد.</p>
       <div class="row w-100">
         <h2 class="col-4 col-lg-3">Backtesting</h2>
         <div
@@ -23,7 +23,7 @@
             class="mx-1 flex-samesize-items"
             value="run"
             :disabled="!canRunBacktest"
-            >Run backtest</b-form-radio
+            >backtest را اجرا کنید</b-form-radio
           >
           <b-form-radio
             v-model="btFormMode"
@@ -32,7 +32,7 @@
             class="mx-1 flex-samesize-items"
             value="results"
             :disabled="!hasBacktestResult"
-            >Analyze result</b-form-radio
+            >تجزیه و تحلیل نتیجه</b-form-radio
           >
           <b-form-radio
             v-model="btFormMode"
@@ -41,7 +41,7 @@
             class="mx-1 flex-samesize-items"
             value="visualize-summary"
             :disabled="!hasBacktestResult"
-            >Visualize summary</b-form-radio
+            >خلاصه</b-form-radio
           >
           <b-form-radio
             v-model="btFormMode"
@@ -50,11 +50,11 @@
             class="mx-1 flex-samesize-items"
             value="visualize"
             :disabled="!hasBacktestResult"
-            >Visualize result</b-form-radio
+            >نتیجه</b-form-radio
           >
         </div>
         <small v-show="backtestRunning" class="text-right bt-running-label col-8 col-lg-3"
-          >Backtest running: {{ backtestStep }} {{ formatPercent(backtestProgress, 2) }}</small
+          >Backtest در حال اجرا: {{ backtestStep }} {{ formatPercent(backtestProgress, 2) }}</small
         >
       </div>
     </div>
@@ -85,32 +85,32 @@
 
       <div v-if="btFormMode == 'run'" class="flex-fill row d-flex flex-column bt-config">
         <div class="mb-2">
-          <span>Strategy</span>
+          <span>استراتژی</span>
           <StrategySelect v-model="strategy"></StrategySelect>
         </div>
         <b-card bg-variant="light" :disabled="backtestRunning">
           <!-- Backtesting parameters -->
           <b-form-group
             label-cols-lg="2"
-            label="Backtest params"
+            label="Backtest پارامترها"
             label-size="sm"
             label-class="font-weight-bold pt-0"
             class="mb-0"
           >
             <b-form-group
               label-cols-sm="5"
-              label="Timeframe:"
-              label-align-sm="right"
+              label="دوره زمانی:"
+              label-align-sm="left"
               label-for="timeframe-select"
             >
               <TimeframeSelect id="timeframe-select" v-model="selectedTimeframe" />
             </b-form-group>
             <b-form-group
               label-cols-sm="5"
-              label="Detail Timeframe:"
-              label-align-sm="right"
+              label="جزئیات دوره زمانی:"
+              label-align-sm="left"
               label-for="timeframe-detail-select"
-              title="Detail timeframe, to simulate intra-candle results. Not setting this will not use this functionality."
+              title="جزئیات دوره زمانی, برای شبیه سازی نتایج intra-candle. عدم تنظیم این ویژگی از این قابلیت استفاده نمی کند."
             >
               <TimeframeSelect
                 id="timeframe-detail-select"
@@ -121,21 +121,21 @@
 
             <b-form-group
               label-cols-sm="5"
-              label="Max open trades:"
-              label-align-sm="right"
+              label="حداکثر معاملات باز:"
+              label-align-sm="left"
               label-for="max-open-trades"
             >
               <b-form-input
                 id="max-open-trades"
                 v-model="maxOpenTrades"
-                placeholder="Use strategy default"
+                placeholder="از استراتژی پیش فرض استفاده کنید"
                 type="number"
               ></b-form-input>
             </b-form-group>
             <b-form-group
               label-cols-sm="5"
-              label="Starting capital:"
-              label-align-sm="right"
+              label="شروع سرمایه:"
+              label-align-sm="left"
               label-for="starting-capital"
             >
               <b-form-input
@@ -147,8 +147,8 @@
             </b-form-group>
             <b-form-group
               label-cols-sm="5"
-              label="Stake amount:"
-              label-align-sm="right"
+              label="مقدار سهام:"
+              label-align-sm="left"
               label-for="stake-amount"
             >
               <div class="d-flex">
@@ -156,14 +156,14 @@
                   id="stake-amount-bool"
                   v-model="stakeAmountUnlimited"
                   class="col-md-6"
-                  >Unlimited stake</b-form-checkbox
+                  >سهام نامحدود</b-form-checkbox
                 >
 
                 <b-form-input
                   id="stake-amount"
                   v-model="stakeAmount"
                   type="number"
-                  placeholder="Use strategy default"
+                  placeholder="از استراتژی پیش فرض استفاده کنید"
                   step="0.01"
                   :disabled="stakeAmountUnlimited"
                 ></b-form-input>
@@ -172,8 +172,8 @@
 
             <b-form-group
               label-cols-sm="5"
-              label="Enable Protections:"
-              label-align-sm="right"
+              label="فعال سازی Protections:"
+              label-align-sm="left"
               label-for="enable-protections"
             >
               <b-form-checkbox
@@ -195,7 +195,7 @@
           </b-form-group>
         </b-card>
 
-        <h3 class="mt-3">Backtesting summary</h3>
+        <h3 class="mt-3">خلاصه Backtesting</h3>
         <div
           class="d-flex flex-wrap flex-md-nowrap justify-content-between justify-content-md-center"
         >
@@ -205,7 +205,7 @@
             class="mx-1"
             @click="clickBacktest"
           >
-            Start backtest
+            شروع backtest
           </b-button>
           <b-button
             variant="primary"
@@ -213,21 +213,21 @@
             class="mx-1"
             @click="pollBacktest"
           >
-            Load backtest result
+            بارگیری نتایج backtest
           </b-button>
           <b-button
             variant="primary"
             class="mx-1"
             :disabled="!backtestRunning"
             @click="stopBacktest"
-            >Stop Backtest</b-button
+            >توقف Backtest</b-button
           >
           <b-button
             variant="primary"
             class="mx-1"
             :disabled="backtestRunning || !canRunBacktest"
             @click="removeBacktest"
-            >Reset Backtest</b-button
+            >ریست Backtest</b-button
           >
         </div>
       </div>
@@ -256,7 +256,7 @@
       class="container-fluid text-center w-100 mt-2"
     >
       <p class="row">
-        Graph will always show the latest values for the selected strategy. Strategy: {{ strategy }}
+        نمودار همیشه آخرین مقادیر استراتژی انتخاب شده را نشان می دهد. استراتژی: {{ strategy }}
       </p>
       <div class="row text-center">
         <PairSummary

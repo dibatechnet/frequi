@@ -1,6 +1,6 @@
 <template>
   <div class="container d-flex flex-column align-items-center">
-    <h3>Available results:</h3>
+    <h3>نتایج موجود:</h3>
     <b-list-group class="ml-2">
       <b-list-group-item
         v-for="[key, strat] in Object.entries(backtestHistory)"
@@ -17,9 +17,9 @@
 </template>
 
 <script lang="ts">
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 import { formatPercent } from '@/shared/formatters';
 import { StrategyBacktestResult } from '@/types';
-import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 @Component({})
 export default class BacktestResultSelect extends Vue {

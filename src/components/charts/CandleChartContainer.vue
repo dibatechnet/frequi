@@ -4,7 +4,7 @@
       <b-modal
         v-if="plotConfigModal"
         id="plotConfiguratorModal"
-        title="Plot Configurator"
+        title="تنظیمات خودکار"
         ok-only
         hide-backdrop
         button-size="sm"
@@ -48,7 +48,7 @@
           :theme="getChartTheme"
         >
         </CandleChart>
-        <label v-else style="margin: auto auto; font-size: 1.5rem">No data available</label>
+        <label v-else style="margin: auto auto; font-size: 1.5rem">اطلاعاتی موجود نیست</label>
       </div>
     </div>
     <transition name="fade" mode="in-out">

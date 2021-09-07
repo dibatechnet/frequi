@@ -22,11 +22,11 @@
 </template>
 
 <script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { namespace } from 'vuex-class';
 import { formatPercent, timestampms } from '@/shared/formatters';
 import { BotStoreGetters } from '@/store/modules/ftbot';
 import { Lock, Trade } from '@/types';
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { namespace } from 'vuex-class';
 
 const ftbot = namespace('ftbot');
 
@@ -124,12 +124,12 @@ export default class PairSummary extends Vue {
       { key: 'pair', label: 'Pair' },
       {
         key: 'locks.lock_end_timestamp',
-        label: 'Lock',
+        label: 'قفل',
         formatter: (value) => (value ? `${timestampms(value)}` : ''),
       },
       {
         key: 'trade.current_profit',
-        label: 'Position',
+        label: 'مثبت',
         formatter: (value) => formatPercent(value, 3),
       },
     ];

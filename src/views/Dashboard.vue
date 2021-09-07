@@ -120,11 +120,10 @@
 </template>
 
 <script lang="ts">
-import { formatPrice } from '@/shared/formatters';
-
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 import { GridLayout, GridItem, GridItemData } from 'vue-grid-layout';
+import { formatPrice } from '@/shared/formatters';
 
 import DailyChart from '@/components/charts/DailyChart.vue';
 import HourlyChart from '@/components/charts/HourlyChart.vue';

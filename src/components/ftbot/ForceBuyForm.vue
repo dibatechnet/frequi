@@ -3,7 +3,7 @@
     <b-modal
       id="forcebuy-modal"
       ref="modal"
-      title="Force buying a pair"
+      title="خرید اجبار"
       @show="resetForm"
       @hidden="resetForm"
       @ok="handleBuy"
@@ -18,9 +18,9 @@
           ></b-form-input>
         </b-form-group>
         <b-form-group
-          label="*Price [optional]"
+          label="*قیمت [اختیاری]"
           label-for="price-input"
-          invalid-feedback="Price must be empty or a positive number"
+          invalid-feedback="قیمت باید خالی یا عدد مثبت باشد"
         >
           <b-form-input
             id="price-input"

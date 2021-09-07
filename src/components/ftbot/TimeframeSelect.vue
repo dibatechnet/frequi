@@ -1,7 +1,7 @@
 <template>
   <b-form-select
     v-model="selectedTimeframe"
-    placeholder="Use strategy default"
+    placeholder="از استراتژی پیش فرض استفاده کنید"
     :options="availableTimeframes"
     @change="emitSelectedTimeframe"
   ></b-form-select>
@@ -41,24 +41,24 @@ export default class Template extends Vue {
   // The below list must always remain sorted correctly!
   availableTimeframesBase = [
     // Placeholder value
-    { value: '', text: 'Use strategy default' },
-    '1m',
-    '3m',
-    '5m',
-    '15m',
-    '30m',
-    '1h',
-    '2h',
-    '4h',
-    '6h',
-    '8h',
-    '12h',
-    '1d',
-    '3d',
-    '1w',
-    '2w',
-    '1M',
-    '1y',
+    { value: '', text: 'از استراتژی پیش فرض استفاده کنید' },
+    '۱ دقیقه',
+    '۳ دقیقه',
+    '۵ دقیقه',
+    '۱۵ دقیقه',
+    '۳۰ دقیقه',
+    '۱ ساعت',
+    '۲ ساعت',
+    '۴ ساعت',
+    '۶ ساعت',
+    '۸ ساعت',
+    '۱۲ ساعت',
+    '۱ روز',
+    '۳ روز',
+    '۱ هفته',
+    '۲ هفته',
+    '۱ ماه',
+    '۱ سال',
   ];
 }
 </script>

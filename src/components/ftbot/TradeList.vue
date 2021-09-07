@@ -26,7 +26,7 @@
         <b-button
           class="btn-xs ml-1"
           size="sm"
-          title="Delete trade"
+          title="حذف ترید"
           @click="removeTradeHandler(row.item)"
         >
           <DeleteIcon :size="16" title="Delete trade" />
@@ -67,7 +67,7 @@
         v-if="showFilter"
         v-model="filterText"
         type="text"
-        placeholder="Filter"
+        placeholder="فیلتر"
         size="sm"
         style="width: unset"
       />
@@ -80,10 +80,10 @@ import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { formatPercent, formatPrice } from '@/shared/formatters';
-import { Trade } from '@/types';
 import DeleteIcon from 'vue-material-design-icons/Delete.vue';
 import ForceSellIcon from 'vue-material-design-icons/CloseBoxMultiple.vue';
+import { formatPercent, formatPrice } from '@/shared/formatters';
+import { Trade } from '@/types';
 import DateTimeTZ from '@/components/general/DateTimeTZ.vue';
 import { BotStoreGetters } from '@/store/modules/ftbot';
 import ProfitSymbol from './ProfitSymbol.vue';
@@ -152,38 +152,38 @@ export default class TradeList extends Vue {
 
   // Added to table-fields for historic trades
   closedFields: Record<string, string | Function>[] = [
-    { key: 'close_timestamp', label: 'Close date' },
-    { key: 'sell_reason', label: 'Close Reason' },
+    { key: 'close_timestamp', label: 'تاریخ بستن' },
+    { key: 'sell_reason', label: 'دلیل بستن' },
   ];
 
   tableFields: Record<string, string | Function>[] = [
-    { key: 'trade_id', label: 'ID' },
-    { key: 'pair', label: 'Pair' },
-    { key: 'amount', label: 'Amount' },
+    { key: 'trade_id', label: 'شناسه' },
+    { key: 'pair', label: 'جفت' },
+    { key: 'amount', label: 'مقدار' },
     {
       key: 'stake_amount',
-      label: 'Stake amount',
+      label: 'مقدار سهام',
       formatter: (value: number) => this.formatPriceWithDecimals(value),
     },
     {
       key: 'open_rate',
-      label: 'Open rate',
+      label: 'نرخ باز',
       formatter: (value: number) => this.formatPrice(value),
     },
     {
       key: this.activeTrades ? 'current_rate' : 'close_rate',
-      label: this.activeTrades ? 'Current rate' : 'Close rate',
+      label: this.activeTrades ? 'نرخ فعلی' : 'نرخ بستن',
       formatter: (value: number) => this.formatPrice(value),
     },
     {
       key: 'profit',
-      label: this.activeTrades ? 'Current profit %' : 'Profit %',
+      label: this.activeTrades ? 'سود جاری %' : 'سود %',
       formatter: (value: number, key, item: Trade) => {
         const percent = formatPercent(item.profit_ratio, 2);
         return `${percent} ${`(${this.formatPriceWithDecimals(item.profit_abs)})`}`;
       },
     },
-    { key: 'open_timestamp', label: 'Open date' },
+    { key: 'open_timestamp', label: 'تاریخ باز کردن' },
     ...(this.activeTrades ? this.openFields : this.closedFields),
   ];
 
@@ -193,7 +193,7 @@ export default class TradeList extends Vue {
 
   forcesellHandler(item: Trade) {
     this.$bvModal
-      .msgBoxConfirm(`Really forcesell trade ${item.trade_id} (Pair ${item.pair})?`)
+      .msgBoxConfirm(`Really forcesell ترید ${item.trade_id} (جفت ${item.pair})?`)
       .then((value: boolean) => {
         if (value) {
           this.forcesell(String(item.trade_id))
@@ -216,7 +216,7 @@ export default class TradeList extends Vue {
   removeTradeHandler(item) {
     console.log(item);
     this.$bvModal
-      .msgBoxConfirm(`Really delete trade ${item.trade_id} (Pair ${item.pair})?`)
+      .msgBoxConfirm(`مطمئن از حذف هستید  ${item.trade_id} (جفت ${item.pair})?`)
       .then((value: boolean) => {
         if (value) {
           this.deleteTrade(item.trade_id).catch((error) => console.log(error.response));

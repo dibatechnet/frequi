@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mb-2">
-      <h3>Performance</h3>
+      <h3>کارایی</h3>
     </div>
     <b-table class="table-sm" :items="performanceStats" :fields="tableFields"></b-table>
   </div>
@@ -25,14 +25,14 @@ export default class Performance extends Vue {
 
   get tableFields() {
     return [
-      { key: 'pair', label: 'Pair' },
-      { key: 'profit', label: 'Profit %' },
+      { key: 'pair', label: 'جفت کردن' },
+      { key: 'profit', label: 'سود %' },
       {
         key: 'profit_abs',
-        label: `Profit ${this.botState?.stake_currency}`,
+        label: `سود ${this.botState?.stake_currency}`,
         formatter: (v: number) => formatPrice(v, 5),
       },
-      { key: 'count', label: 'Count' },
+      { key: 'count', label: 'محاسبه' },
     ];
   }
 }

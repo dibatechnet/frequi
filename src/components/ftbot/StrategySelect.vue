@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-import { BotStoreGetters } from '@/store/modules/ftbot';
-import { StrategyResult } from '@/types';
 import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
+import { BotStoreGetters } from '@/store/modules/ftbot';
+import { StrategyResult } from '@/types';
 
 const ftbot = namespace('ftbot');
 

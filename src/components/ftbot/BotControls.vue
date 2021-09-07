@@ -4,7 +4,7 @@
       <button
         class="btn btn-secondary btn-sm ml-1"
         :disabled="!isTrading || isRunning"
-        title="Start Trading"
+        title="شروع ترید"
         @click="startBot()"
       >
         <PlayIcon />
@@ -12,7 +12,7 @@
       <button
         class="btn btn-secondary btn-sm ml-1"
         :disabled="!isTrading || !isRunning"
-        title="Stop Trading - Also stops handling open trades."
+        title="توقف ترید - همچنین معاملات باز را متوقف می کند."
         @click="handleStopBot()"
       >
         <StopIcon />
@@ -20,7 +20,7 @@
       <button
         class="btn btn-secondary btn-sm ml-1"
         :disabled="!isTrading || !isRunning"
-        title="StopBuy - Stops buying, but still handles open trades"
+        title="توقف خرید - خرید را متوقف می کند ، اما همچنان معاملات باز را انجام می دهد"
         @click="handleStopBuy()"
       >
         <PauseIcon />
@@ -28,7 +28,7 @@
       <button
         class="btn btn-secondary btn-sm ml-1"
         :disabled="!isTrading"
-        title="Reload Config - reloads configuration including strategy, resetting all settings changed on the fly."
+        title="ریست تنظیمات - ریست تنضیمات شامل استراتژی ها, ریست تمام کانفیگ های درحال اجرا میشود."
         @click="handleReloadConfig()"
       >
         <ReloadIcon />
@@ -37,7 +37,7 @@
         v-if="botState && botState.forcebuy_enabled"
         class="btn btn-secondary btn-sm ml-1"
         :disabled="!isTrading || !isRunning"
-        title="Force Buy - Immediately buy an asset at an optional price. Sells are then handled according to strategy rules."
+        title="خرید اجباری - بلافاصله دارایی را با قیمت اختیاری خریداری کنید. سپس فروش طبق قوانین استراتژی انجام می شود."
         @click="initiateForcebuy"
       >
         <ForceBuyIcon />
@@ -46,7 +46,7 @@
         v-if="isWebserverMode && false"
         :disabled="isTrading"
         class="btn btn-secondary btn-sm ml-1"
-        title="Start Trading mode"
+        title="فعال سازی حالت ترید"
         @click="startTrade()"
       >
         <PlayIcon />
@@ -59,13 +59,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
-import { BotState } from '@/types';
-import { BotStoreGetters } from '@/store/modules/ftbot';
 import PlayIcon from 'vue-material-design-icons/Play.vue';
 import StopIcon from 'vue-material-design-icons/Stop.vue';
 import PauseIcon from 'vue-material-design-icons/Pause.vue';
 import ReloadIcon from 'vue-material-design-icons/Reload.vue';
 import ForceBuyIcon from 'vue-material-design-icons/PlusBoxMultipleOutline.vue';
+import { BotState } from '@/types';
+import { BotStoreGetters } from '@/store/modules/ftbot';
 import ForceBuyForm from './ForceBuyForm.vue';
 
 const ftbot = namespace('ftbot');

@@ -1,9 +1,9 @@
+import axios, { AxiosInstance } from 'axios';
 import Vue from 'vue';
 import Vuex from 'vuex';
 
 import userService from '@/shared/userService';
 import { getCurrentTheme, getTheme, storeCurrentTheme } from '@/shared/themes';
-import axios, { AxiosInstance } from 'axios';
 import ftbotModule, { BotStoreGetters } from './modules/ftbot';
 import alertsModule from './modules/alerts';
 import layoutModule from './modules/layout';

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex">
-      <b-form-group class="col-md-6" label="Start date" label-for="dp_dateFrom">
+      <b-form-group class="col-md-6" label="تاریخ شروع" label-for="dp_dateFrom">
         <b-input-group>
           <b-input-group-prepend>
             <b-form-datepicker v-model="dateFrom" class="mb-1" button-only></b-form-datepicker>
@@ -10,12 +10,12 @@
             id="dp_dateFrom"
             v-model="dateFrom"
             type="text"
-            placeholder="YYYY-MM-DD"
+            placeholder="سال - ماه - روز"
             autocomplete="off"
           ></b-form-input>
         </b-input-group>
       </b-form-group>
-      <b-form-group class="ml-2 col-md-6" label="End date" label-for="dp_dateTo">
+      <b-form-group class="ml-2 col-md-6" label="تاریخ پایان" label-for="dp_dateTo">
         <b-input-group>
           <b-input-group-prepend>
             <b-form-datepicker v-model="dateTo" class="mb-1" button-only></b-form-datepicker>
@@ -24,7 +24,7 @@
             id="dp_dateTo"
             v-model="dateTo"
             type="text"
-            placeholder="YYYY-MM-DD"
+            placeholder="سال - ماه - روز"
             autocomplete="off"
           ></b-form-input>
         </b-input-group>

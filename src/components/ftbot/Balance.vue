@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mb-2">
-      <label class="mr-auto h3">Balance</label>
+      <label class="mr-auto h3">ترازنامه</label>
       <b-button class="float-right" size="sm" @click="getBalance">&#x21bb;</b-button>
       <b-form-checkbox
         v-model="hideSmallBalances"
@@ -20,7 +20,7 @@
       </p>
       <b-table class="table-sm" :items="balanceCurrencies" :fields="tableFields">
         <template slot="bottom-row">
-          <td><strong>Total</strong></td>
+          <td><strong>مجموع</strong></td>
           <td></td>
           <!-- this is a computed prop that adds up all the expenses in the visible rows -->
           <td>
@@ -35,9 +35,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
-import { BalanceInterface } from '@/types';
 import HideIcon from 'vue-material-design-icons/EyeOff.vue';
 import ShowIcon from 'vue-material-design-icons/Eye.vue';
+import { BalanceInterface } from '@/types';
 import { BotStoreGetters } from '@/store/modules/ftbot';
 
 const ftbot = namespace('ftbot');

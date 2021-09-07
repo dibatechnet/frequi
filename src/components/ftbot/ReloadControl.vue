@@ -8,7 +8,7 @@
         class="ml-auto float-right mr-2 my-auto"
         title="AutoRefresh"
         switch
-        >AutoRefresh</b-form-checkbox
+        >ریلود اتوماتیک</b-form-checkbox
       >
     </div>
   </div>
@@ -65,10 +65,10 @@ export default class ReloadControl extends Vue {
 
   startRefresh(runNow: boolean) {
     if (this.loggedIn !== true) {
-      console.log('Not logged in.');
+      console.log('وارد نشده اید.');
       return;
     }
-    console.log('Starting automatic refresh.');
+    console.log('شروع خودکار رفرش.');
     if (runNow) {
       this.refreshFrequent(false);
     }
@@ -88,7 +88,7 @@ export default class ReloadControl extends Vue {
   }
 
   stopRefresh() {
-    console.log('Stopping automatic refresh.');
+    console.log('توقف اتوماتیک رفرش.');
     if (this.refreshInterval) {
       window.clearInterval(this.refreshInterval);
     }
@@ -97,7 +97,7 @@ export default class ReloadControl extends Vue {
     }
   }
 
-  @Watch('autoRefresh')
+  @Watch('رفرش اتوماتیک')
   watchAutoRefresh(val) {
     if (val) {
       this.startRefresh(true);

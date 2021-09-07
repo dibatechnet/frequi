@@ -51,9 +51,9 @@ export default class Template extends Vue {
   @uiSettingsNs.Action [SettingsActions.setTimeZone];
 
   openTradesOptions = [
-    { value: OpenTradeVizOptions.showPill, text: 'Show pill in icon' },
-    { value: OpenTradeVizOptions.asTitle, text: 'Show in title' },
-    { value: OpenTradeVizOptions.noOpenTrades, text: "Don't show open trades in header" },
+    { value: OpenTradeVizOptions.showPill, text: 'نمایش در ایکون ها' },
+    { value: OpenTradeVizOptions.asTitle, text: 'نمایش در عنوان' },
+    { value: OpenTradeVizOptions.noOpenTrades, text: 'ترید های باز را نمایش نده' },
   ];
 
   // Careful when adding new timezones here - eCharts only supports UTC or user timezone

@@ -7,11 +7,11 @@
     <div v-if="historicView" class="mx-md-3 mt-2">
       <div class="d-flex flex-wrap">
         <div class="col-md-3 text-left">
-          <span>Strategy</span>
+          <span>استراتژی</span>
           <StrategySelect v-model="strategy" class="mt-1"></StrategySelect>
         </div>
         <div class="col-md-3 text-left">
-          <span>Timeframe</span>
+          <span>دوره زمانی</span>
           <TimeframeSelect v-model="selectedTimeframe" class="mt-1" />
         </div>
         <TimeRangeSelect v-model="timerange" class="col-12 col-md-5 mr-md-2"></TimeRangeSelect>

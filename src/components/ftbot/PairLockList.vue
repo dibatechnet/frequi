@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mb-2">
-      <label class="mr-auto h3">Pair Locks</label>
+      <label class="mr-auto h3">قفل های جفت</label>
       <b-button class="float-right" size="sm" @click="getLocks">&#x21bb;</b-button>
     </div>
     <div>
@@ -10,7 +10,7 @@
           <b-button
             class="btn-xs ml-1"
             size="sm"
-            title="Delete trade"
+            title="حذف ترید"
             @click="removePairLock(row.item)"
           >
             <DeleteIcon :size="16" />
@@ -22,12 +22,12 @@
 </template>
 
 <script lang="ts">
-import { timestampms } from '@/shared/formatters';
-import { BotStoreGetters } from '@/store/modules/ftbot';
-import { Lock } from '@/types';
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 import DeleteIcon from 'vue-material-design-icons/Delete.vue';
+import { timestampms } from '@/shared/formatters';
+import { BotStoreGetters } from '@/store/modules/ftbot';
+import { Lock } from '@/types';
 import { AlertActions } from '@/store/modules/alerts';
 
 const ftbot = namespace('ftbot');
@@ -63,7 +63,7 @@ export default class PairLockList extends Vue {
     if (item.id !== undefined) {
       this.deleteLock(item.id);
     } else {
-      this.addAlert({ message: 'This Freqtrade version does not support deleting locks.' });
+      this.addAlert({ message: 'این ورژن ربات موتور سامانه دیبا اجازه این عملیات را ندارد.' });
     }
   }
 }

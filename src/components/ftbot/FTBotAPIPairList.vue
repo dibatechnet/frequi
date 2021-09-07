@@ -2,7 +2,7 @@
   <!-- TODO We could move the list into a component since we are reusing the same code for both lists. -->
   <div>
     <div>
-      <h3>Whitelist Methods</h3>
+      <h3>روش های لیست مجاز</h3>
 
       <div v-if="pairlistMethods.length" class="list">
         <b-list-group v-for="(method, key) in pairlistMethods" :key="key">
@@ -11,23 +11,23 @@
       </div>
     </div>
     <!-- Show Whitelist -->
-    <h3>Whitelist</h3>
+    <h3>لیست مجاز</h3>
     <div v-if="whitelist.length" class="list">
       <b-list-group v-for="(pair, key) in whitelist" :key="key">
         <b-list-group-item href="#" class="pair white">{{ pair }}</b-list-group-item>
       </b-list-group>
     </div>
-    <p v-else>List Unavailable. Please Login and make sure server is running.</p>
+    <p v-else>لیست در دسترس نیست لطفا وارد شوید و مطمئن شوید که سرور در حال اجرا است.</p>
     <hr />
 
     <!-- Blacklsit -->
     <div>
-      <label class="mr-auto h3">Blacklist</label>
+      <label class="mr-auto h3">لیست سیاه</label>
       <b-button id="blacklist-add-btn" class="float-right" size="sm">+</b-button>
       <b-popover target="blacklist-add-btn" triggers="click" :show.sync="blackListShow">
         <form ref="form" @submit.prevent>
           <div>
-            <b-form-group label-cols="2" label="Pair" label-for="pair-input">
+            <b-form-group label-cols="2" label="جفت" label-for="pair-input">
               <b-form-input
                 id="pair-input"
                 v-model="newblacklistpair"
@@ -41,7 +41,7 @@
               size="sm"
               type="submit"
               @click="addBlacklistPair"
-              >Add</b-button
+              >افزودن</b-button
             >
           </div>
         </form>
@@ -52,7 +52,7 @@
         <b-list-group-item href="#" class="pair black">{{ pair }}</b-list-group-item>
       </b-list-group>
     </div>
-    <p v-else>BlackList Unavailable. Please Login and make sure server is running.</p>
+    <p v-else>لیست سیاه در دسترس نیست. لطفا وارد شوید و مطمئن شوید که سرور در حال اجرا است.</p>
     <!-- Pagination -->
     <!-- TODO Add pagination support -->
   </div>

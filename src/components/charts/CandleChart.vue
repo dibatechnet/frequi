@@ -6,9 +6,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
-import { Trade, PairHistory, PlotConfig } from '@/types';
-import randomColor from '@/shared/randomColor';
-import { roundTimeframe } from '@/shared/timemath';
 import ECharts from 'vue-echarts';
 
 import { use } from 'echarts/core';
@@ -29,6 +26,9 @@ import {
   VisualMapComponent,
   VisualMapPiecewiseComponent,
 } from 'echarts/components';
+import { Trade, PairHistory, PlotConfig } from '@/types';
+import randomColor from '@/shared/randomColor';
+import { roundTimeframe } from '@/shared/timemath';
 
 use([
   AxisPointerComponent,
